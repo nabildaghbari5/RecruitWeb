@@ -1,0 +1,164 @@
+<body>
+  <div class="auth-container">
+    <div class="auth-visual">
+      <div class="auth-visual__content">
+        <div class="auth-visual__logo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="white" fill-opacity="0.1" />
+            <path
+              d="M24 14C28.4183 14 32 17.5817 32 22C32 26.4183 28.4183 30 24 30C19.5817 30 16 26.4183 16 22C16 17.5817 19.5817 14 24 14Z"
+              stroke="white" stroke-width="2" />
+            <path d="M12 34C12 29.5817 15.5817 26 20 26H28C32.4183 26 36 29.5817 36 34V36H12V34Z" stroke="white"
+              stroke-width="2" />
+          </svg>
+        </div>
+        <h1 class="auth-visual__title">Trouvez les meilleurs talents</h1>
+        <p class="auth-visual__subtitle">
+          Connectez-vous à votre espace recruteur et accédez aux meilleurs candidats qualifiés pour vos offres d'emploi.
+        </p>
+        <div class="auth-visual__features">
+          <div class="feature-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Milliers de CV qualifiés</span>
+          </div>
+          <div class="feature-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Matching intelligent</span>
+          </div>
+          <div class="feature-item">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Gestion simplifiée des candidatures</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-form-wrapper">
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          <h2 class="auth-form-title">Bienvenue</h2>
+          <p class="auth-form-description">Connectez-vous à votre compte recruteur</p>
+        </div>
+        <form class="auth-form" [formGroup]="signupForm" (ngSubmit)="signUp()" novalidate>
+
+          <!-- NOM -->
+          <div class="form-group">
+            <label for="lastname" class="form-label">Nom</label>
+
+            <div class="input-wrapper">
+              <input type="text" id="lastname" formControlName="lastname" class="form-input"
+                placeholder="Entrez votre nom" autocomplete="family-name" />
+
+              <!-- Icône user -->
+              <span class="input-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM3 17a7 7 0 0114 0" stroke="currentColor"
+                    stroke-width="1.5" />
+                </svg>
+              </span>
+            </div>
+
+            <span class="form-error" *ngIf="signupForm.get('lastname')?.touched && signupForm.get('lastname')?.invalid">
+              Nom obligatoire
+            </span>
+          </div>
+
+          <!-- PRENOM -->
+          <div class="form-group">
+            <label for="firstname" class="form-label">Prénom</label>
+
+            <div class="input-wrapper">
+              <input type="text" id="firstname" formControlName="firstname" class="form-input"
+                placeholder="Entrez votre prénom" autocomplete="given-name" />
+
+              <!-- Icône user -->
+              <span class="input-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 10a4 4 0 100-8 4 4 0 000 8zM3 17a7 7 0 0114 0" stroke="currentColor"
+                    stroke-width="1.5" />
+                </svg>
+              </span>
+            </div>
+
+            <span class="form-error"
+              *ngIf="signupForm.get('firstname')?.touched && signupForm.get('firstname')?.invalid">
+              Prénom obligatoire
+            </span>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="form-group">
+            <label for="email" class="form-label">Adresse email</label>
+
+            <div class="input-wrapper">
+              <input type="email" id="email" formControlName="email" class="form-input"
+                placeholder="votre.email@entreprise.com" autocomplete="email" />
+
+              <!-- Icône email -->
+              <span class="input-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M3 5h14v10H3z" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M3 5l7 5 7-5" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </span>
+            </div>
+
+            <span class="form-error" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+              <span *ngIf="signupForm.get('email')?.errors?.['required']">Email obligatoire</span>
+              <span *ngIf="signupForm.get('email')?.errors?.['email']">Email invalide</span>
+            </span>
+          </div>
+
+          <!-- PASSWORD -->
+          <div class="form-group">
+            <label for="password" class="form-label">Mot de passe</label>
+
+            <div class="input-wrapper">
+              <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+                class="form-input" placeholder="••••••••" autocomplete="new-password" />
+
+              <button type="button" class="input-toggle" id="togglePassword" (click)="togglePassword()">
+                <span *ngIf="!showPassword">👁</span>
+                <span *ngIf="showPassword">🙈</span>
+              </button>
+            </div>
+
+            <span class="form-error" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+              <span *ngIf="signupForm.get('password')?.errors?.['required']">Mot de passe obligatoire</span>
+              <span *ngIf="signupForm.get('password')?.errors?.['minlength']">Minimum 8 caractères</span>
+            </span>
+          </div>
+          <!--
+             <div class="form-actions">
+              <label class="checkbox-wrapper">
+                <input type="checkbox" id="remember" name="remember" />
+                <span class="checkbox-label">Se souvenir de moi</span>
+              </label>
+              <a href="#" class="link-secondary">Mot de passe oublié ?</a>
+            </div>
+            -->
+          <!-- SUBMIT -->
+          <button type="submit" class="btn-primary" [disabled]="signupForm.invalid">
+            S'inscrire
+          </button>
+
+          <div class="form-footer">
+            <span>Vous avez déjà un compte ?</span>
+            <a href="/account/login" class="link-primary">Se connecter</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</body>
