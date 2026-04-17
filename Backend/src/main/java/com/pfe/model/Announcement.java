@@ -14,6 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+// Annonce 
 public class Announcement {
 	
 	@Id
