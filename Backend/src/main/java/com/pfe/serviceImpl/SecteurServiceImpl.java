@@ -1,7 +1,8 @@
-package com.pfe.service;
+package com.pfe.serviceImpl;
 
 import com.pfe.model.Secteur;
 import com.pfe.repository.SecteurRepository;
+import com.pfe.service.SecteurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

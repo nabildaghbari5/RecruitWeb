@@ -5,7 +5,7 @@ import { ListOffreComponent } from './page/list-offre/list-offre.component';
 import { ModifierOffreComponent } from './page/modifier-offre/modifier-offre.component';
 import { AnnouncementCandidatComponent } from './page/announcement-candidat/announcement-candidat.component';
 import { EnvoyerDemandeComponent } from '../demandes/pages/envoyer-demande/envoyer-demande.component';
-
+// configuration router
 const routes: Routes = [
   {
     path:"ajouter",
