@@ -1,0 +1,78 @@
+<div class="container mt-5">
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h6 class="mb-0">Modifier un recruteur</h6>
+        </div>
+
+        <div class="card-body">
+
+            <form [formGroup]="signupForm">
+
+                <div class="row">
+
+                    <!-- Nom -->
+                    <div class="col-md-6 mb-3">
+                        <label for="lastname" class="form-label">
+                            Nom
+                        </label>
+
+                        <input type="text" id="lastname" class="form-control" formControlName="lastname"
+                            placeholder="Saisir le nom">
+                    </div>
+
+                    <!-- Prénom -->
+                    <div class="col-md-6 mb-3">
+                        <label for="firstname" class="form-label">
+                            Prénom
+                        </label>
+
+                        <input type="text" id="firstname" class="form-control" formControlName="firstname"
+                            placeholder="Saisir le prénom">
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <!-- Email -->
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">
+                            Email
+                        </label>
+
+                        <input type="email" id="email" class="form-control" formControlName="email"
+                            placeholder="Saisir l’adresse email">
+                    </div>
+
+                </div>
+
+                <!-- Role caché -->
+                <input type="hidden" formControlName="role">
+
+                <br>
+
+                <div class="text-center">
+
+                    <button type="button" class="btn btn-danger px-4" (click)="Anuller()">
+
+                        Annuler
+                    </button>
+
+                    &nbsp;&nbsp;
+
+                    <button type="submit" class="btn btn-primary px-4" (click)="modifier()" >
+
+                        Enregistrer
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<br><br>

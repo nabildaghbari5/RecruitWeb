@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL"
+                  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+                  xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                  xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                  id="Definitions_Recrutement"
+                  targetNamespace="http://bpmn.io/schema/bpmn">
+
+  <!-- PROCESS -->
+  <bpmn:process id="Process_Recrutement" isExecutable="false">
+
+    <bpmn:startEvent id="StartEvent" name="Réception CV"/>
+    
+    <bpmn:task id="Task_Collecte" name="Collecte des candidatures"/>
+    <bpmn:task id="Task_Excel" name="Saisie dans Excel"/>
+    <bpmn:task id="Task_Analyse" name="Analyse RH des candidatures"/>
+    <bpmn:task id="Task_Selection" name="Sélection des candidats"/>
+    <bpmn:task id="Task_Entretien" name="Entretiens"/>
+    <bpmn:task id="Task_Decision" name="Décision finale"/>
+
+    <bpmn:endEvent id="EndEvent" name="Embauche"/>
+
+    <!-- FLOWS -->
+    <bpmn:sequenceFlow id="flow1" sourceRef="StartEvent" targetRef="Task_Collecte"/>
+    <bpmn:sequenceFlow id="flow2" sourceRef="Task_Collecte" targetRef="Task_Excel"/>
+    <bpmn:sequenceFlow id="flow3" sourceRef="Task_Excel" targetRef="Task_Analyse"/>
+    <bpmn:sequenceFlow id="flow4" sourceRef="Task_Analyse" targetRef="Task_Selection"/>
+    <bpmn:sequenceFlow id="flow5" sourceRef="Task_Selection" targetRef="Task_Entretien"/>
+    <bpmn:sequenceFlow id="flow6" sourceRef="Task_Entretien" targetRef="Task_Decision"/>
+    <bpmn:sequenceFlow id="flow7" sourceRef="Task_Decision" targetRef="EndEvent"/>
+
+  </bpmn:process>
+
+  <!-- DIAGRAM (IMPORTANT POUR AFFICHAGE) -->
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Recrutement">
+
+      <!-- START -->
+      <bpmndi:BPMNShape id="StartEvent_di" bpmnElement="StartEvent">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+
+      <!-- TASKS -->
+      <bpmndi:BPMNShape id="Task_Collecte_di" bpmnElement="Task_Collecte">
+        <dc:Bounds x="200" y="80" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_Excel_di" bpmnElement="Task_Excel">
+        <dc:Bounds x="360" y="80" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_Analyse_di" bpmnElement="Task_Analyse">
+        <dc:Bounds x="520" y="80" width="140" height="80"/>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_Selection_di" bpmnElement="Task_Selection">
+        <dc:Bounds x="700" y="80" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_Entretien_di" bpmnElement="Task_Entretien">
+        <dc:Bounds x="860" y="80" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+
+      <bpmndi:BPMNShape id="Task_Decision_di" bpmnElement="Task_Decision">
+        <dc:Bounds x="1020" y="80" width="120" height="80"/>
+      </bpmndi:BPMNShape>
+
+      <!-- END -->
+      <bpmndi:BPMNShape id="EndEvent_di" bpmnElement="EndEvent">
+        <dc:Bounds x="1180" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+
+      <!-- EDGES -->
+      <bpmndi:BPMNEdge id="flow1_di" bpmnElement="flow1">
+        <di:waypoint x="136" y="118"/>
+        <di:waypoint x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="flow2_di" bpmnElement="flow2">
+        <di:waypoint x="320" y="118"/>
+        <di:waypoint x="360" y="118"/>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="flow3_di" bpmnElement="flow3">
+        <di:waypoint x="480" y="118"/>
+        <di:waypoint x="520" y="118"/>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="flow4_di" bpmnElement="flow4">
+        <di:waypoint x="660" y="118"/>
+        <di:waypoint x="700" y="118"/>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="flow5_di" bpmnElement="flow5">
+        <di:waypoint x="820" y="118"/>
+        <di:waypoint x="860" y="118"/>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="flow6_di" bpmnElement="flow6">
+        <di:waypoint x="980" y="118"/>
+        <di:waypoint x="1020" y="118"/>
+      </bpmndi:BPMNEdge>
+
+      <bpmndi:BPMNEdge id="flow7_di" bpmnElement="flow7">
+        <di:waypoint x="1140" y="118"/>
+        <di:waypoint x="1180" y="118"/>
+      </bpmndi:BPMNEdge>
+
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</bpmn:definitions>

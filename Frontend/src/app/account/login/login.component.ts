@@ -38,8 +38,8 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required , Validators.minLength(8)]], 
+      email: ['admin@gmail.com', [Validators.required, Validators.email]],
+      password: ['admin123', [Validators.required , Validators.minLength(8)]], 
     });
   }
 
@@ -59,6 +59,9 @@ export class LoginComponent {
         localStorage.setItem('token',this.userConnected.token as string);
         if(this.userConnected.roles==="CANDIDAT"){
           this.router.navigate(["/offre/Announcement_Actuel"])
+        }
+        if(this.userConnected.roles==="RH"){
+          this.router.navigate(["/dashboard/statistique"])
         }
         this.toastService.success('Votre opération a réussi.', 'Succès', {  
           timeOut: 3000,

@@ -32,10 +32,10 @@ public class AuthenticationService {
 
     public User register(RegistrationRequest request) throws RoleNotFoundException {
         Role role;
-        try{
-           role = Role.valueOf(request.getRoles().toUpperCase());
-        }catch (IllegalArgumentException e){
-            throw new RoleNotFoundException("Role invalide : " + request.getRoles());
+        try {
+            role = Role.valueOf(request.getRole().toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new RoleNotFoundException("Role invalide : " + request.getRole());
         }
         // Creation de l'utilisateur
         var user = User.builder()

@@ -18,7 +18,6 @@ public class AnnouncementDto {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private int offerNumber;
     private LocalDate publicationDate;
     private LocalDate applicationDeadLine;
     private String title;
@@ -26,9 +25,9 @@ public class AnnouncementDto {
     private LocalDate endDate;
     private String description;
     private String technologies;
-    // Nouveau champ pour LinkedIn
-    private boolean publishToLinkedIn;
-    // ID de la publication LinkedIn une fois publiée
-    private String linkedInPostId;
+    private Integer recruiterId;
+    private String recruiterFullName;
+    private String recruiterEmail;
+
 
 }

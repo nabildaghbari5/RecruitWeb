@@ -1,0 +1,45 @@
+<br>
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <div class="d-flex gap-2">
+      <button class="btn btn-add btn-primary" routerLink="/offre/ajouter_secteur">
+        &nbsp; Ajouter un secteur
+      </button>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="datatable">
+  <table class="table table-striped" *ngIf="secteur.length > 0">
+    <thead class="datatable-header">
+      <tr>
+        <th><strong>{{ 'ID' }}</strong></th>
+        <th><strong>{{ 'Nom Secteur ' }}</strong></th>
+      
+      </tr>
+    </thead>
+    <tbody class="text-sm">
+      <tr *ngFor="let s of secteur">
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+      
+        <td class="action-buttons">
+          <button class="btn btn-info btn-sm btn-rounded" (click)="editSecteur(s.id)">
+            <i class="fas fa-edit"></i>
+          </button>&nbsp;
+          <button class="btn btn-danger btn-sm btn-rounded" (click)="deleteSecteur(s.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>&nbsp;
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="secteur.length === 0" class="text-center p-3">
+    <p>Aucune secteur disponible pour le moment.</p>
+  </div>
+</div>
+
+
+
+  

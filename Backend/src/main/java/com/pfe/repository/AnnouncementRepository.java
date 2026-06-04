@@ -1,15 +1,26 @@
 package com.pfe.repository;
 
 import com.pfe.model.Announcement;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import com.pfe.model.User;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Repository
 public interface AnnouncementRepository  extends JpaRepository<Announcement, Integer> {
+
+    @Override
+    @EntityGraph(attributePaths = "recruiter")
+    List<Announcement> findAll();
+
+    @Override
+    @EntityGraph(attributePaths = "recruiter")
+    java.util.Optional<Announcement> findById(Integer id);
 
     @Query("SELECT COUNT(a) FROM Announcement a WHERE a.endDate >= :currentDate")
     Long countActiveAnnouncements(LocalDate currentDate);
@@ -22,5 +33,9 @@ public interface AnnouncementRepository  extends JpaRepository<Announcement, Int
 
     @Query("SELECT COUNT(a) FROM Announcement a WHERE a.technologies LIKE %:technology% AND a.endDate >= :currentDate")
     Long countAnnouncementsByTechnology(String technology, LocalDate currentDate);
+
+    List<Announcement> findByRecruiter(User recruiter);
+
+    List<Announcement> findByRecruiterId(Integer recruiterId);
 
 }

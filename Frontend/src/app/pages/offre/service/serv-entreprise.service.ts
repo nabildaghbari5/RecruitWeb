@@ -13,16 +13,19 @@ export class ServEntrepriseService {
     return 'http://localhost:8081/api/service' 
   }
 
-  save(id: number|null, any: any): Observable<any> {
-    if(id){
-      return this.update(id, any)
+  save(id: number|null, data: any, recruiterId?: number): Observable<any> {
+    if (id) {
+      return this.update(id, data);
     }
-    return this.create(any)
+    if (recruiterId == null) {
+      throw new Error('L\'identifiant du recruteur est requis pour créer une offre');
+    }
+    return this.create(recruiterId, data);
   }
 
-  create(any: any): Observable<any> {
-    let url = this.baseUrl();
-    return this.http.post<any>(url, any);
+  create(recruiterId: number, data: any): Observable<any> {
+    const url = `${this.baseUrl()}/recruiter/${recruiterId}`;
+    return this.http.post<any>(url, data);
   }
 
   update(id: number, any: any): Observable<any> {

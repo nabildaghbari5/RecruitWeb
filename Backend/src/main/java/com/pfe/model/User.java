@@ -12,8 +12,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.security.Principal;
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -43,6 +45,10 @@ public class User implements UserDetails , Principal {
     @Enumerated(EnumType.STRING)
     private Role role ;
 
+    @OneToMany(mappedBy = "recruiter", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Announcement> announcements = new ArrayList<>();
+
     @Override
     public String getName() {
         return email;
@@ -57,6 +63,7 @@ public class User implements UserDetails , Principal {
     }
 
     @Override
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

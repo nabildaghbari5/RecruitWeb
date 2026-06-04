@@ -1,7 +1,9 @@
 package com.pfe.serviceImpl;
 
 import com.pfe.model.Secteur;
+import com.pfe.model.User;
 import com.pfe.repository.SecteurRepository;
+import com.pfe.repository.UserRepository;
 import com.pfe.service.SecteurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,17 +15,23 @@ import java.util.List;
 public class SecteurServiceImpl implements SecteurService {
 
     private final SecteurRepository secteurRepository;
+    private final UserRepository userRepository ;
 
     @Override
-    public Secteur create(Secteur secteur) {
+    public Secteur create(Integer recruteurId , Secteur secteur) {
+        User recruteur = userRepository.findById(recruteurId)
+                .orElseThrow();
+        secteur.setRecruteur(recruteur);
         return secteurRepository.save(secteur);
     }
 
     @Override
-    public Secteur update(Integer id, Secteur secteur) {
+    public Secteur update(Integer id ,  Integer recruteurId , Secteur secteur) {
         Secteur existing = secteurRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Secteur introuvable"));
-
+        User recruteur = userRepository.findById(recruteurId)
+                .orElseThrow();
+        existing.setRecruteur(recruteur);
         existing.setName(secteur.getName());
 
         return secteurRepository.save(existing);

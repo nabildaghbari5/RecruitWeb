@@ -1,7 +1,6 @@
 package com.pfe.model;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,7 +19,6 @@ public class Announcement {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private int offerNumber;
     private LocalDate publicationDate;
     private LocalDate applicationDeadLine;
     private String title;
@@ -30,6 +28,8 @@ public class Announcement {
     private String description;
     private String technologies;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "recruiter_id", nullable = false)
+    private User recruiter;
 
 }

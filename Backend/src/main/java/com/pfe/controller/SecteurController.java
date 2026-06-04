@@ -16,10 +16,10 @@ public class SecteurController {
 
     private final SecteurService secteurService;
 
-    @PostMapping
-    public ResponseEntity<Secteur> create(@RequestBody Secteur secteur) {
+    @PostMapping("/{recruteurId}")
+    public ResponseEntity<Secteur> create(@PathVariable Integer recruteurId ,  @RequestBody Secteur secteur) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(secteurService.create(secteur));
+                .body(secteurService.create(recruteurId , secteur));
     }
 
     @GetMapping("/{id}")
@@ -32,10 +32,10 @@ public class SecteurController {
         return ResponseEntity.ok(secteurService.getAll());
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Secteur> update(@PathVariable Integer id,
+    @PutMapping("/{id}/{recruteurId}")
+    public ResponseEntity<Secteur> update(@PathVariable Integer id, @PathVariable Integer recruteurId ,
                                           @RequestBody Secteur secteur) {
-        return ResponseEntity.ok(secteurService.update(id, secteur));
+        return ResponseEntity.ok(secteurService.update(id , recruteurId, secteur));
     }
 
     @DeleteMapping("/{id}")

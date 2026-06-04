@@ -22,6 +22,5 @@ public class RegistrationRequest {
     private String password;
     private String telephone ;
     private String status;
-    private String roles ;
-
+    private String role;
 }

@@ -30,7 +30,22 @@
             </div>
           </div>
           <div class="row mb-3">
-            <div class="col-md-6">
+            <div class="col-md-4">
+              <label for="recruteur" class="form-label">Recruteur associé</label>
+              <select
+                class="form-control"
+                id="recruteur"
+                formControlName="recruteurId"
+                required>
+                <option value="" disabled>
+                  Sélectionner un recruteur
+                </option>
+                <option *ngFor="let rec of recruteurs" [ngValue]="rec.id">
+                  {{ rec.firstname }} {{ rec.lastname }}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-4">
               <label for="publicationDate" class="form-label">Date de Début</label>
               <input 
                 type="date" 
@@ -40,7 +55,7 @@
                 required 
                 >
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <label for="endDate" class="form-label">Date de Fin</label>
               <input 
                 type="date" 
@@ -48,6 +63,7 @@
                 class="form-control" 
                 name="endDate" 
                 formControlName="endDate"
+                required
                 >
             </div>
           </div>

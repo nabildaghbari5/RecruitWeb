@@ -31,11 +31,13 @@ public class AnnouncementController {
 	private final AnnouncementServiceImpl entMapperImpl ;
 	
 	
-	@PostMapping("")
-	public ResponseEntity<AnnouncementDto> create(@RequestBody @Valid AnnouncementDto dto) {
-		AnnouncementDto response = service.create(dto);
-		return new  ResponseEntity<>(response , HttpStatus.CREATED);
-	}  
+	@PostMapping("/recruiter/{recruiterId}")
+	public ResponseEntity<AnnouncementDto> create(
+			@PathVariable Integer recruiterId,
+			@RequestBody @Valid AnnouncementDto dto) {
+		AnnouncementDto response = service.create(dto, recruiterId);
+		return new ResponseEntity<>(response, HttpStatus.CREATED);
+	}
 	
 	
 	@PutMapping("/{id}")

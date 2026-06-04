@@ -1,14 +1,9 @@
-
 <body>
   <div class="auth-container">
     <div class="auth-visual">
       <div class="auth-visual__content">
         <div class="auth-visual__logo">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" rx="12" fill="white" fill-opacity="0.1"/>
-            <path d="M24 14C28.4183 14 32 17.5817 32 22C32 26.4183 28.4183 30 24 30C19.5817 30 16 26.4183 16 22C16 17.5817 19.5817 14 24 14Z" stroke="white" stroke-width="2"/>
-            <path d="M12 34C12 29.5817 15.5817 26 20 26H28C32.4183 26 36 29.5817 36 34V36H12V34Z" stroke="white" stroke-width="2"/>
-          </svg>
+
         </div>
         <h1 class="auth-visual__title">Trouvez les meilleurs talents</h1>
         <p class="auth-visual__subtitle">
@@ -17,19 +12,22 @@
         <div class="auth-visual__features">
           <div class="feature-item">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
             <span>Milliers de CV qualifiés</span>
           </div>
           <div class="feature-item">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
             <span>Matching intelligent</span>
           </div>
           <div class="feature-item">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.6667 5L7.50004 14.1667L3.33337 10" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
             <span>Gestion simplifiée des candidatures</span>
           </div>
@@ -44,27 +42,19 @@
           <p class="auth-form-description">Connectez-vous à votre compte recruteur</p>
         </div>
 
-        <form class="auth-form" id="loginForm" 
-        [formGroup]="loginForm" 
-        (ngSubmit)="onSubmit()" 
-        novalidate>
+        <form class="auth-form" id="loginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
           <div class="form-group">
             <label for="email" class="form-label">Adresse email</label>
             <div class="input-wrapper">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                formControlName="email"
-                class="form-input"
-                placeholder="votre.email@entreprise.com"
-                required
-                autocomplete="email"
-              />
+              <input type="email" id="email" name="email" formControlName="email" class="form-input"
+                placeholder="votre.email@entreprise.com" required autocomplete="email" />
               <span class="input-icon">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.33337 5.83333C3.33337 4.91286 4.07957 4.16667 5.00004 4.16667H15C15.9205 4.16667 16.6667 4.91286 16.6667 5.83333V14.1667C16.6667 15.0871 15.9205 15.8333 15 15.8333H5.00004C4.07957 15.8333 3.33337 15.0871 3.33337 14.1667V5.83333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M3.33337 5.83333L10 10.8333L16.6667 5.83333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path
+                    d="M3.33337 5.83333C3.33337 4.91286 4.07957 4.16667 5.00004 4.16667H15C15.9205 4.16667 16.6667 4.91286 16.6667 5.83333V14.1667C16.6667 15.0871 15.9205 15.8333 15 15.8333H5.00004C4.07957 15.8333 3.33337 15.0871 3.33337 14.1667V5.83333Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M3.33337 5.83333L10 10.8333L16.6667 5.83333" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </span>
             </div>
@@ -74,23 +64,23 @@
           <div class="form-group">
             <label for="password" class="form-label">Mot de passe</label>
             <div class="input-wrapper">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                formControlName="password"
-                class="form-input"
-                placeholder="••••••••"
-                required
-                autocomplete="current-password"
-              />
+              <input type="password" id="password" name="password" formControlName="password" class="form-input"
+                placeholder="••••••••" required autocomplete="current-password" />
               <button type="button" class="input-toggle" id="togglePassword" aria-label="Afficher le mot de passe">
-                <svg class="icon-show" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 4.16667C5.83337 4.16667 2.27504 6.73333 0.833374 10.4167C2.27504 14.1 5.83337 16.6667 10 16.6667C14.1667 16.6667 17.725 14.1 19.1667 10.4167C17.725 6.73333 14.1667 4.16667 10 4.16667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 13.3333C11.841 13.3333 13.3334 11.841 13.3334 10C13.3334 8.15905 11.841 6.66667 10 6.66667C8.15909 6.66667 6.66671 8.15905 6.66671 10C6.66671 11.841 8.15909 13.3333 10 13.3333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg class="icon-show" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M10 4.16667C5.83337 4.16667 2.27504 6.73333 0.833374 10.4167C2.27504 14.1 5.83337 16.6667 10 16.6667C14.1667 16.6667 17.725 14.1 19.1667 10.4167C17.725 6.73333 14.1667 4.16667 10 4.16667Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path
+                    d="M10 13.3333C11.841 13.3333 13.3334 11.841 13.3334 10C13.3334 8.15905 11.841 6.66667 10 6.66667C8.15909 6.66667 6.66671 8.15905 6.66671 10C6.66671 11.841 8.15909 13.3333 10 13.3333Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <svg class="icon-hide" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M8.82496 8.825C8.48372 9.16624 8.27504 9.62625 8.27504 10.1333C8.27504 11.1779 9.12211 12.025 10.1667 12.025C10.6738 12.025 11.1338 11.8163 11.475 11.475M14.95 14.95C13.5834 15.9583 11.9167 16.6667 10.1667 16.6667C6.00004 16.6667 2.44171 14.1 1.00004 10.4167C1.87504 8.39167 3.36671 6.725 5.25004 5.68333M8.25004 4.36667C8.87504 4.225 9.51671 4.16667 10.1667 4.16667C14.3334 4.16667 17.8917 6.73333 19.3334 10.4167C18.9584 11.4083 18.4584 12.3333 17.8417 13.1583M11.7667 11.7667L8.82496 8.825L11.7667 11.7667ZM1.66671 1.66667L18.3334 18.3333L1.66671 1.66667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg class="icon-hide" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M8.82496 8.825C8.48372 9.16624 8.27504 9.62625 8.27504 10.1333C8.27504 11.1779 9.12211 12.025 10.1667 12.025C10.6738 12.025 11.1338 11.8163 11.475 11.475M14.95 14.95C13.5834 15.9583 11.9167 16.6667 10.1667 16.6667C6.00004 16.6667 2.44171 14.1 1.00004 10.4167C1.87504 8.39167 3.36671 6.725 5.25004 5.68333M8.25004 4.36667C8.87504 4.225 9.51671 4.16667 10.1667 4.16667C14.3334 4.16667 17.8917 6.73333 19.3334 10.4167C18.9584 11.4083 18.4584 12.3333 17.8417 13.1583M11.7667 11.7667L8.82496 8.825L11.7667 11.7667ZM1.66671 1.66667L18.3334 18.3333L1.66671 1.66667Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
               </button>
             </div>
@@ -99,12 +89,14 @@
           <!--
           
           -->
-         
+
 
           <button type="submit" class="btn-primary">
             <span class="btn-text">Se connecter</span>
-            <svg class="btn-loader" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="50.265" stroke-dashoffset="12.566"/>
+            <svg class="btn-loader" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-dasharray="50.265" stroke-dashoffset="12.566" />
             </svg>
           </button>
 
