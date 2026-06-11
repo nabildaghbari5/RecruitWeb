@@ -47,11 +47,24 @@ export class SidebarComponent {
 
 
   initialize(): void {
-    this.menuItems = MENU1.rhMenu;
-    if (this.userConnected.role[0] == 'ROLE_ADMIN') {
-      this.menuItems = MENU1.rhMenu;
+    if (!this.userConnected?.roles) {
+      this.menuItems = [];
+      return;
     }
-   
+
+    switch (this.userConnected.roles) {
+      case 'RH':
+        this.menuItems = MENU1.rhMenu;
+        break;
+      case 'CANDIDAT':
+        this.menuItems = MENU1.candidatMenu;
+        break;
+      case 'RECRUTEUR':
+        this.menuItems = MENU1.recruteurMenu;
+        break;
+      default:
+        this.menuItems = [];
+    }
   }
 
   /***

@@ -59,6 +59,26 @@ export const MENU1 = {
             icon: 'fa-solid fa-briefcase',
             link: '/demandes/mycandidatures'
         }
+    ],
+
+    recruteurMenu: [
+        {
+            id: 1,
+            label: 'MENU RECRUTEUR',
+            isTitle: true
+        },
+        {
+            id: 2,
+            label: 'Offres',
+            icon: 'fa-solid fa-briefcase',
+            link: '/offre/list-offre'
+        },
+        {
+            id: 3,
+            label: 'Ajouter offre',
+            icon: 'fa-solid fa-plus',
+            link: '/offre/ajouter'
+        }
     ]
 };
 

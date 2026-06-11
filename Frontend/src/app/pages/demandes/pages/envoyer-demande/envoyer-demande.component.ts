@@ -51,7 +51,7 @@ export class EnvoyerDemandeComponent implements OnInit  {
   }
 
   getUserProfile(){
-    const userProfileString = localStorage.getItem("userProfile");
+    const userProfileString = localStorage.getItem("currentUser");
       if (userProfileString) {
         const userProfile = JSON.parse(userProfileString);
         this.candidateId = userProfile.id;

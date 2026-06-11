@@ -39,8 +39,8 @@
       <button 
         type="submit" 
         class="submit-btn"
-        [disabled]="loading || !evaluationForm.valid || evaluationForm.disabled">
-        <i class="fas fa-spinner fa-spin" *ngIf="loading"></i>
+        [disabled]="!loading || !evaluationForm.valid || evaluationForm.disabled">
+        <i class="fas fa-spinner fa-spin" *ngIf="loading" ></i>
         {{ loading ? 'Envoi en cours...' : 'Soumettre l\'évaluation' }}
       </button>
     </div>
